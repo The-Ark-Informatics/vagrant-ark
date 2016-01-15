@@ -19,7 +19,7 @@ _A pre-built Virtualbox OVA is available from the releases section. Instructions
 
 ### Usage
 
-Once running, this virtual machine exposes an instance of [The Ark](https://github.com/The-Ark-Informatics/ark) accessible at [http://192.168.33.10:8080](http://192.168.33.10:8080)
+Once running, this virtual machine exposes an instance of [The Ark](https://github.com/The-Ark-Informatics/ark) accessible at [http://192.168.33.10:8080/ark](http://192.168.33.10:8080/ark)
 
 Passwords for all services (MySQL, LDAP and The Ark) are pre-configured to be `password`. The Ark administrator username is "`arksuperuser@ark.org.au`"
 
