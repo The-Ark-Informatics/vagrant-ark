@@ -12,7 +12,7 @@ A vagrant build for [The Ark](https://github.com/The-Ark-Informatics/ark/).
 ### To Install
 _A pre-built Virtualbox OVA is available from the releases section. Instructions to install the pre-built version are [here](#)_
 
-_Note: This may take a long time to complete depending on your internet connection_
+**_Note: This may take a long time to complete depending on your internet connection_**
 
 1. `git clone --recursive https://github.com/The-Ark-Informatics/vagrant-ark`
 2. `vagrant up`
