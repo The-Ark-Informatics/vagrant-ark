@@ -28,7 +28,7 @@ class ark {
 		require => Package['maven'],
 	}->
 	file { 'ark.war':
-		name => '/var/lib/tomcat7/webapps/ROOT.war',
+		name => '/var/lib/tomcat7/webapps/ark.war',
 		source => '/home/vagrant/ark/ark-container/target/ark.war',
 		notify => [ Service['tomcat7'] ],
 	}
