@@ -1,0 +1,6 @@
+[submodule "puppet/modules/ark/files/ark"]
+	path = puppet/modules/ark/files/ark
+	url = https://github.com/The-Ark-Informatics/ark.git
+[submodule "src/ark"]
+	path = src/ark
+	url = https://github.com/The-Ark-Informatics/ark.git
