@@ -21,4 +21,8 @@ Vagrant.configure(2) do |config|
 		puppet.module_path = "puppet/modules"
 	end
 
+	config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+
+	config.vm.provision :shell, inline: "/bin/mount -t vboxsf -o uid=`id -u tomcat7`,gid=`id -g tomcat7` var_lib_tomcat7_webapps /var/lib/tomcat7/webapps", run: "always"
+
 end
