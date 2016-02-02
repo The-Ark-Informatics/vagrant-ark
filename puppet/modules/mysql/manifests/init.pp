@@ -11,4 +11,14 @@ class mysql {
 		mode  => '0644',
 		source => 'puppet:///modules/mysql/my.cnf';
 	}
+
+	exec { 'mysqladmin':
+		command => '/usr/bin/mysqladmin -u root password password',
+		require => [ Package['mysql-client'], Service['mysql'] ],
+	}
+
+	service { 'mysql':
+		ensure => running,
+		require => [ Package['mysql-client'], Package['mysql-server'] ],
+	}
 }

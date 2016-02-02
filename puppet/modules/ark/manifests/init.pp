@@ -54,7 +54,7 @@ class ark {
 		require => [ Package['maven'] ],
 		before => [ File['insertDone'] ],
 		onlyif => '/usr/bin/test -z "$(ldapsearch -w password -D \'cn=admin,dc=the-ark,dc=org,dc=au\' -b \'cn=arksuperuser@ark.org.au,ou=arkUsers,dc=the-ark,dc=org,dc=au\' | grep \'dn: cn=arksuperuser@ark.org.au,ou=arkUsers,dc=the-ark,dc=org,dc=au\')"'
-	}~>
+	}->
 	exec { 'insertUser':
 		cwd => '/home/vagrant/ark/ark-user-account',
 		command => '/usr/bin/java -jar target/ark-user-account-1.0.0-jar-with-dependencies.jar arksuperuser@ark.org.au password Super User',
