@@ -17,7 +17,7 @@ class mysql {
 		require => [ Package['mysql-client'], Service['mysql'] ],
 	}->
 	exec { 'mysqladmin127':
-		command => '/usr/bin/mysqladmin -u root password password -h 127.0.0.1',
+		command => '/usr/bin/mysqladmin -u root -ppassword password password -h 127.0.0.1',
 		require => [ Package['mysql-client'], Service['mysql'] ],
 	}
 
