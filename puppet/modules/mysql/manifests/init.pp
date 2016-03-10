@@ -13,11 +13,12 @@ class mysql {
 	}
 
 	exec { 'mysqladmin':
+		unless => "/usr/bin/mysqladmin -uroot -ppassword status",
 		command => '/usr/bin/mysqladmin -u root password password',
 		require => [ Package['mysql-client'], Service['mysql'] ],
-	}->
+	} ->
 	exec { 'mysqladmin127':
-		command => '/usr/bin/mysqladmin -u root -ppassword password password -h 127.0.0.1',
+		command => '/bin/echo "SELECT @password := password from mysql.user where host=\"localhost\" and user=\"root\"; update mysql.user set password=@password where host=\"127.0.0.1\" and user=\"root\";" | /usr/bin/mysql -u root -ppassword; sudo service mysql restart',
 		require => [ Package['mysql-client'], Service['mysql'] ],
 	} ->
 	file { '/tmp/base.sql':
