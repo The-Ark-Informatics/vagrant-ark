@@ -19,6 +19,15 @@ class mysql {
 	exec { 'mysqladmin127':
 		command => '/usr/bin/mysqladmin -u root -ppassword password password -h 127.0.0.1',
 		require => [ Package['mysql-client'], Service['mysql'] ],
+	} ->
+	file { '/tmp/base.sql':
+		owner => 'root',
+		group => 'root',
+		mode  => '0777',
+		source => 'puppet:///modules/mysql/to_import.sql'
+	} ->
+	exec { 'apply_patch':
+		command => '/usr/bin/mysql -u root -ppassword < /tmp/base.sql',
 	}
 
 	service { 'mysql':
