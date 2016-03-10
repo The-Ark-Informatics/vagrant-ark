@@ -2951,7 +2951,7 @@ CREATE TABLE `consent_history` (
   `COMPLETED_DATE` date DEFAULT NULL,
   `CONSENT_DOWNLOADED_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=297 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2982,7 +2982,7 @@ CREATE TABLE `lss_consent_history` (
   `CONSENT_DATE` date DEFAULT NULL,
   `CONSENT_DOWNLOADED` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2991 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3028,7 +3028,7 @@ CREATE TABLE `revinfo` (
   `timestamp` bigint(20) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24026 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3656,7 +3656,7 @@ CREATE TABLE `barcode_label` (
   KEY `fk_barcode_label_study` (`STUDY_ID`),
   KEY `fk_barcode_label_printer` (`BARCODE_PRINTER_ID`),
   KEY `fk_barcode_label_barcode_printer` (`BARCODE_PRINTER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3697,7 +3697,7 @@ CREATE TABLE `barcode_label_data` (
   KEY `fk_barcode_label_data_label` (`BARCODE_LABEL_ID`),
   KEY `fk_barcode_label_data_1` (`BARCODE_LABEL_ID`),
   CONSTRAINT `fk_barcode_label_data_1` FOREIGN KEY (`BARCODE_LABEL_ID`) REFERENCES `barcode_label` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=483 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3806,7 +3806,7 @@ CREATE TABLE `bio_transaction` (
   CONSTRAINT `FK_BIOTRANSACTION_BIOSPECIMEN_ID` FOREIGN KEY (`BIOSPECIMEN_ID`) REFERENCES `biospecimen` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `FK_BIOTRANSACTION_REQUEST_ID` FOREIGN KEY (`REQUEST_ID`) REFERENCES `access_request` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_BIOTRANSACTION_STATUS_ID` FOREIGN KEY (`STATUS_ID`) REFERENCES `bio_transaction_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=71575 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3881,7 +3881,7 @@ CREATE TABLE `biocollection` (
   KEY `fk_collection_biocollection_uid_idx` (`BIOCOLLECTION_UID`),
   CONSTRAINT `fk_collection_link_subject_study` FOREIGN KEY (`LINK_SUBJECT_STUDY_ID`) REFERENCES `study`.`link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_collection_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27275 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3989,7 +3989,7 @@ CREATE TABLE `biocollectionuid_template` (
   UNIQUE KEY `STUDY_ID_UNIQUE` (`STUDY_ID`),
   KEY `fk_biocollectionuid_template_study` (`STUDY_ID`),
   CONSTRAINT `fk_biocollectionuid_template_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4098,7 +4098,7 @@ CREATE TABLE `biospecimen` (
   CONSTRAINT `fk_biospecimen_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_biospecimen_treatment_type_id` FOREIGN KEY (`TREATMENT_TYPE_ID`) REFERENCES `treatment_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_biospecimen_unit` FOREIGN KEY (`UNIT_ID`) REFERENCES `unit` (`ID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=75904 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4212,7 +4212,7 @@ CREATE TABLE `biospecimen_copy` (
   CONSTRAINT `biospecimen_copy_ibfk_7` FOREIGN KEY (`BIOSPECIMEN_SPECIES_ID`) REFERENCES `biospecimen_species` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `biospecimen_copy_ibfk_8` FOREIGN KEY (`BIOSPECIMEN_STATUS_ID`) REFERENCES `biospecimen_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `biospecimen_copy_ibfk_9` FOREIGN KEY (`BIOSPECIMEN_STORAGE_ID`) REFERENCES `biospecimen_storage` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=63032 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4244,7 +4244,7 @@ CREATE TABLE `biospecimen_custom_field_data` (
   KEY `FK_BIOSPECFDATA_CUSTOM_FIELD_DISPLAY_ID` (`CUSTOM_FIELD_DISPLAY_ID`),
   CONSTRAINT `FK_BIOSPECFDATA_BIOSPECIMEN_ID` FOREIGN KEY (`BIOSPECIMEN_ID`) REFERENCES `biospecimen` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `FK_BIOSPECFDATA_CUSTOM_FIELD_DISPLAY_ID` FOREIGN KEY (`CUSTOM_FIELD_DISPLAY_ID`) REFERENCES `study`.`custom_field_display` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7526 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4515,7 +4515,7 @@ CREATE TABLE `biospecimenuid_template` (
   CONSTRAINT `fk_study_biospecimenuid_padchar` FOREIGN KEY (`BIOSPECIMENUID_PADCHAR_ID`) REFERENCES `biospecimenuid_padchar` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_biospecimenuid_token` FOREIGN KEY (`BIOSPECIMENUID_TOKEN_ID`) REFERENCES `biospecimenuid_token` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4616,7 +4616,7 @@ CREATE TABLE `inv_box` (
   CONSTRAINT `fk_inv_box_coltype` FOREIGN KEY (`COLNOTYPE_ID`) REFERENCES `inv_col_row_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inv_box_rack` FOREIGN KEY (`RACK_ID`) REFERENCES `inv_rack` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inv_box_rowtype` FOREIGN KEY (`ROWNOTYPE_ID`) REFERENCES `inv_col_row_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1770 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4652,7 +4652,7 @@ CREATE TABLE `inv_cell` (
   KEY `fk_inv_cell_biospecimen_idx` (`BIOSPECIMEN_ID`) USING BTREE,
   CONSTRAINT `fk_inv_cell_biospecimen` FOREIGN KEY (`BIOSPECIMEN_ID`) REFERENCES `biospecimen` (`ID`) ON DELETE SET NULL ON UPDATE NO ACTION,
   CONSTRAINT `fk_inv_cell_box` FOREIGN KEY (`BOX_ID`) REFERENCES `inv_box` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=130395 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4714,7 +4714,7 @@ CREATE TABLE `inv_freezer` (
   UNIQUE KEY `UNIQUE_FREEZER_NAME` (`SITE_ID`,`NAME`),
   KEY `fk_inv_freezer_site` (`SITE_ID`),
   CONSTRAINT `fk_inv_freezer_site` FOREIGN KEY (`SITE_ID`) REFERENCES `inv_site` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4748,7 +4748,7 @@ CREATE TABLE `inv_rack` (
   UNIQUE KEY `UNIQUE_RACK_NAME` (`FREEZER_ID`,`NAME`),
   KEY `fk_inv_freezer_tray_idx` (`FREEZER_ID`) USING BTREE,
   CONSTRAINT `FK_inv_rack_inv_freezer` FOREIGN KEY (`FREEZER_ID`) REFERENCES `inv_freezer` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4778,7 +4778,7 @@ CREATE TABLE `inv_site` (
   `LDAP_GROUP` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `UNIQUE_SITE_NAME` (`NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4807,7 +4807,7 @@ CREATE TABLE `study_inv_site` (
   KEY `fk_study_inv_site_inv_site` (`INV_SITE_ID`),
   CONSTRAINT `fk_study_inv_site_inv_site` FOREIGN KEY (`INV_SITE_ID`) REFERENCES `inv_site` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_inv_site_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=376 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4870,7 +4870,7 @@ CREATE TABLE `unit` (
   `ORDER` bigint(20) NOT NULL DEFAULT '1',
   `TYPE` enum('VOLUME','MASS','TIME','TEMPERATURE','DISTANCE','UNKNOWN') NOT NULL DEFAULT 'UNKNOWN',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4915,7 +4915,7 @@ CREATE TABLE `pheno_collection` (
   CONSTRAINT `FK_PHENO_CUSTOM_FIELD_GROUP_ID` FOREIGN KEY (`CUSTOM_FIELD_GROUP_ID`) REFERENCES `study`.`custom_field_group` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_PHENO_QUESTIONNAIRE_STATUS_ID` FOREIGN KEY (`QUESTIONNAIRE_STATUS_ID`) REFERENCES `questionnaire_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_REVIEWED_BY_ARK_USER_ID` FOREIGN KEY (`REVIEWED_BY_ID`) REFERENCES `study`.`ark_user` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8247 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4947,7 +4947,7 @@ CREATE TABLE `pheno_data` (
   KEY `FK_PHENO_DATA_PHENO_COLLECTION_ID` (`PHENO_COLLECTION_ID`),
   CONSTRAINT `FK_PHENO_DATA_CFD_ID` FOREIGN KEY (`CUSTOM_FIELD_DISPLAY_ID`) REFERENCES `study`.`custom_field_display` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_PHENO_DATA_PHENO_COLLECTION_ID` FOREIGN KEY (`PHENO_COLLECTION_ID`) REFERENCES `pheno_collection` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=405233 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5226,7 +5226,7 @@ CREATE TABLE `biocollection_field` (
   PRIMARY KEY (`ID`),
   KEY `fk_biocollection_field_field_type` (`FIELD_TYPE_ID`),
   CONSTRAINT `biocollection_field_ibfk_1` FOREIGN KEY (`FIELD_TYPE_ID`) REFERENCES `study`.`field_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5253,7 +5253,7 @@ CREATE TABLE `biocollection_field_search` (
   UNIQUE KEY `uq_bcfs_bcf_s` (`BIOCOLLECTION_FIELD_ID`,`SEARCH_ID`) USING BTREE,
   KEY `fk_dfs_biocollection_field` (`BIOCOLLECTION_FIELD_ID`),
   KEY `fk_dfs_search` (`SEARCH_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COMMENT='many2many join biocollection_field and search';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='many2many join biocollection_field and search';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5338,7 +5338,7 @@ CREATE TABLE `biospecimen_field_search` (
   UNIQUE KEY `uq_bsfs_df_s` (`BIOSPECIMEN_FIELD_ID`,`SEARCH_ID`) USING BTREE,
   KEY `fk_bsfs_biospecimen_field` (`BIOSPECIMEN_FIELD_ID`) USING BTREE,
   KEY `fk_bsfs_search` (`SEARCH_ID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=latin1 COMMENT='many2many join biospecimen_field and search';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='many2many join biospecimen_field and search';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5398,7 +5398,7 @@ CREATE TABLE `consent_status_field_search` (
   UNIQUE KEY `uq_dfs_df_s` (`CONSENT_STATUS_FIELD_ID`,`SEARCH_ID`),
   KEY `fk_dfs_demographic_field` (`CONSENT_STATUS_FIELD_ID`),
   KEY `fk_dfs_search` (`SEARCH_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COMMENT='many2many join demographic_field and search';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='many2many join demographic_field and search';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5427,7 +5427,7 @@ CREATE TABLE `custom_field_display_search` (
   KEY `fk_cfds_search` (`SEARCH_ID`),
   CONSTRAINT `custom_field_display_search_ibfk_1` FOREIGN KEY (`CUSTOM_FIELD_DISPLAY_ID`) REFERENCES `study`.`custom_field_display` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `custom_field_display_search_ibfk_2` FOREIGN KEY (`SEARCH_ID`) REFERENCES `search` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=361 DEFAULT CHARSET=latin1 COMMENT='many2many join custom_field_display and search';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='many2many join custom_field_display and search';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5538,7 +5538,7 @@ CREATE TABLE `demographic_field_search` (
   UNIQUE KEY `uq_dfs_df_s` (`DEMOGRAPHIC_FIELD_ID`,`SEARCH_ID`),
   KEY `fk_dfs_demographic_field` (`DEMOGRAPHIC_FIELD_ID`),
   KEY `fk_dfs_search` (`SEARCH_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=265 DEFAULT CHARSET=latin1 COMMENT='many2many join demographic_field and search';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='many2many join demographic_field and search';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5581,7 +5581,7 @@ CREATE TABLE `query_filter` (
   CONSTRAINT `query_filter_ibfk_3` FOREIGN KEY (`BIOSPECIMEN_FIELD_ID`) REFERENCES `biospecimen_field` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `query_filter_ibfk_4` FOREIGN KEY (`CUSTOM_FIELD_DISPLAY_ID`) REFERENCES `study`.`custom_field_display` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `query_filter_ibfk_5` FOREIGN KEY (`DEMOGRAPHIC_FIELD_ID`) REFERENCES `demographic_field` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5763,7 +5763,7 @@ CREATE TABLE `search` (
   KEY `fk_search_query_grouping` (`TOP_LEVEL_GROUPING_ID`),
   KEY `search_ibfk_1` (`STUDY_ID`),
   CONSTRAINT `search_ibfk_1` FOREIGN KEY (`STUDY_ID`) REFERENCES `study`.`study` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5786,7 +5786,7 @@ CREATE TABLE `search_payload` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `PAYLOAD` longblob NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=982 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5824,7 +5824,7 @@ CREATE TABLE `search_result` (
   CONSTRAINT `fk_search_result_search` FOREIGN KEY (`SEARCH_ID`) REFERENCES `search` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `search_result_ibfk_1` FOREIGN KEY (`SEARCH_PAYLOAD_ID`) REFERENCES `search_payload` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `search_result_ibfk_2` FOREIGN KEY (`SEARCH_ID`) REFERENCES `search` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=977 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5852,7 +5852,7 @@ CREATE TABLE `search_subject` (
   KEY `fk_search_subject_2` (`LINK_SUBJECT_STUDY_ID`) USING BTREE,
   CONSTRAINT `search_subject_ibfk_1` FOREIGN KEY (`SEARCH_ID`) REFERENCES `search` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `search_subject_ibfk_2` FOREIGN KEY (`LINK_SUBJECT_STUDY_ID`) REFERENCES `study`.`link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5936,7 +5936,7 @@ CREATE TABLE `address` (
   CONSTRAINT `fk_address_country` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `country` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_address_state` FOREIGN KEY (`STATE_ID`) REFERENCES `state` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_address_status` FOREIGN KEY (`ADDRESS_STATUS_ID`) REFERENCES `address_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5124 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`ADDRESS_TYPE_ID`) REFER `study/addre';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`ADDRESS_TYPE_ID`) REFER `study/addre';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6880,7 +6880,7 @@ CREATE TABLE `ark_user` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `LDAP_USER_NAME` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6915,7 +6915,7 @@ CREATE TABLE `ark_user_role` (
   CONSTRAINT `FK_ARK_ROLE_ID` FOREIGN KEY (`ARK_ROLE_ID`) REFERENCES `ark_role` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_ARK_USER_ID` FOREIGN KEY (`ARK_USER_ID`) REFERENCES `ark_user` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_ARK_USER_ROLE_STUDY_ID` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10203 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6957,7 +6957,7 @@ CREATE TABLE `audit_history` (
   KEY `AUDIT_HISTORY_ENTITY_TYPE` (`ENTITY_TYPE`) USING BTREE,
   CONSTRAINT `audit_history_ibfk_1` FOREIGN KEY (`STUDY_STATUS_ID`) REFERENCES `study_status` (`ID`),
   CONSTRAINT `audit_history_ibfk_3` FOREIGN KEY (`STUDY_STATUS_ID`) REFERENCES `study_status` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=155450 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`ACTION_TYPE_ID`) REFER `study/action';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`ACTION_TYPE_ID`) REFER `study/action';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7032,7 +7032,7 @@ CREATE TABLE `consent` (
   CONSTRAINT `fk_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_study_component` FOREIGN KEY (`STUDY_COMP_ID`) REFERENCES `study_comp` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_comp_status` FOREIGN KEY (`STUDY_COMP_STATUS_ID`) REFERENCES `study_comp_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7149,7 +7149,7 @@ CREATE TABLE `consent_section` (
   KEY `fk_consent_section_2` (`STUDY_COMP_ID`) USING BTREE,
   CONSTRAINT `fk_consent_section_1` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_consent_section_2` FOREIGN KEY (`STUDY_COMP_ID`) REFERENCES `study_comp` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7346,7 +7346,7 @@ CREATE TABLE `correspondences` (
   CONSTRAINT `correspondences_study_id` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `correspondence_person_id` FOREIGN KEY (`PERSON_ID`) REFERENCES `person` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_correspondences_ark_user` FOREIGN KEY (`ARK_USER_ID`) REFERENCES `ark_user` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7698,7 +7698,7 @@ CREATE TABLE `custom_field` (
   CONSTRAINT `FK_CUSTOM_FIELD_CUSTOM_FIELD_CATEGORY_ID` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `custom_field_category` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_CUSTOM_FIELD_STUDY_ID` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_CUSTOM_FIELD_UNIT_TYPE_ID` FOREIGN KEY (`UNIT_TYPE_ID`) REFERENCES `unit_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1676 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7736,7 +7736,7 @@ CREATE TABLE `custom_field_category` (
   CONSTRAINT `FK_CUSTOMFIELDCATEGORY_CUSTOM_FIELD_TYPE_ID` FOREIGN KEY (`CUSTOM_FIELD_TYPE_ID`) REFERENCES `custom_field_type` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_CUSTOMFIELDCATEGORY_PARENT_ID` FOREIGN KEY (`PARENT_ID`) REFERENCES `custom_field_category` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_CUSTOMFIELDCATEGORY_STUDY_ID` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7796,7 +7796,7 @@ CREATE TABLE `custom_field_display` (
   KEY `FK_CUSTOM_FIELD_GROUP_CUSTOM_FIELD_ID` (`CUSTOM_FIELD_ID`),
   CONSTRAINT `FK_CUSTOM_FIELD_GROUP_CUSTOM_FIELD_ID` FOREIGN KEY (`CUSTOM_FIELD_ID`) REFERENCES `custom_field` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_CUSTOM_FIELD_GROUP_ID` FOREIGN KEY (`CUSTOM_FIELD_GROUP_ID`) REFERENCES `custom_field_group` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3267 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7828,7 +7828,7 @@ CREATE TABLE `custom_field_group` (
   KEY `FK_CUSTOM_FIELD_GROUP_ARK_FUNCTION_ID` (`ARK_FUNCTION_ID`),
   CONSTRAINT `FK_CUSTOM_FIELD_GROUP_ARK_FUNCTION_ID` FOREIGN KEY (`ARK_FUNCTION_ID`) REFERENCES `ark_function` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_CUSTOM_FIELD_GROUP_STUDY_ID` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7887,7 +7887,7 @@ CREATE TABLE `custom_field_upload` (
   KEY `FK_CFU_UPLOAD_ID` (`UPLOAD_ID`),
   CONSTRAINT `FK_CFU_CUSTOM_FIELD_ID` FOREIGN KEY (`CUSTOM_FIELD_ID`) REFERENCES `custom_field` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_CFU_UPLOAD_ID` FOREIGN KEY (`UPLOAD_ID`) REFERENCES `upload` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1344 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8220,7 +8220,7 @@ CREATE TABLE `link_study_arkmodule` (
   KEY `FK_LINK_STUDY_ARKMODULE_ARK_MODULE_ID` (`ARK_MODULE_ID`),
   CONSTRAINT `FK_LINK_STUDY_ARKMODULE_ARK_MODULE_ID` FOREIGN KEY (`ARK_MODULE_ID`) REFERENCES `ark_module` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_LINK_STUDY_ARKMODULE_STUDY_ID` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8251,7 +8251,7 @@ CREATE TABLE `link_study_studycomp` (
   CONSTRAINT `link_study_studycomp_ibfk_1` FOREIGN KEY (`STUDY_COMP_ID`) REFERENCES `study_comp` (`ID`),
   CONSTRAINT `link_study_studycomp_ibfk_2` FOREIGN KEY (`STUDY_COMP_STATUS_ID`) REFERENCES `study_comp_status` (`ID`),
   CONSTRAINT `link_study_studycomp_ibfk_3` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_COMP_ID`) REFER `study/study_c';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_COMP_ID`) REFER `study/study_c';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8308,7 +8308,7 @@ CREATE TABLE `link_study_substudy` (
   KEY `LINK_STUDY_SUBSTUDY_SUB_STUDY_FK` (`SUB_STUDY_ID`) USING BTREE,
   CONSTRAINT `link_study_substudy_ibfk_1` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `link_study_substudy_ibfk_2` FOREIGN KEY (`SUB_STUDY_ID`) REFERENCES `study` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_ID`) REFER `study/study`(`ID`)';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_ID`) REFER `study/study`(`ID`)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8343,7 +8343,7 @@ CREATE TABLE `link_subject_contact` (
   CONSTRAINT `link_subject_contact_ibfk_2` FOREIGN KEY (`PERSON_SUBJECT_ID`) REFERENCES `person` (`ID`),
   CONSTRAINT `link_subject_contact_ibfk_3` FOREIGN KEY (`RELATIONSHIP_ID`) REFERENCES `relationship` (`ID`),
   CONSTRAINT `link_subject_contact_ibfk_4` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_CONTACT_ID`) REFER `study/per';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_CONTACT_ID`) REFER `study/per';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8374,7 +8374,7 @@ CREATE TABLE `link_subject_pedigree` (
   CONSTRAINT `fk_link_subject_pedigree_parent_relative_fk` FOREIGN KEY (`RELATIVE_ID`) REFERENCES `link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_link_subject_pedigree_relationship_fk` FOREIGN KEY (`RELATIONSHIP_ID`) REFERENCES `relationship` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_link_subject_pedigree_subject_in_context_fk` FOREIGN KEY (`LINK_SUBJECT_STUDY_ID`) REFERENCES `link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8429,7 +8429,7 @@ CREATE TABLE `link_subject_study` (
   CONSTRAINT `FK_LINK_SUBJECT_STUDY_STUDY_FK` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`),
   CONSTRAINT `FK_LINK_SUBJECT_STUDY_SUBJECT_STATUS_FK` FOREIGN KEY (`SUBJECT_STATUS_ID`) REFERENCES `subject_status` (`ID`),
   CONSTRAINT `link_subject_study_ibfk_1` FOREIGN KEY (`PERSON_ID`) REFERENCES `person` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45127 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_ID`) REFER `study/person`(`ID';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_ID`) REFER `study/person`(`ID';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8579,7 +8579,7 @@ CREATE TABLE `otherid` (
   `OtherID` varchar(100) NOT NULL,
   `OtherID_Source` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=82658 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8625,7 +8625,7 @@ CREATE TABLE `payload` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `PAYLOAD` longblob NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=latin1 COMMENT='This is a simple table for storing LOBs and an id to represent them.';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This is a simple table for storing LOBs and an id to represent them.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8681,7 +8681,7 @@ CREATE TABLE `person` (
   CONSTRAINT `fk_person_preferred_email_status` FOREIGN KEY (`PREFERRED_EMAIL_STATUS`) REFERENCES `email_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_person_title_type` FOREIGN KEY (`TITLE_TYPE_ID`) REFERENCES `title_type` (`ID`),
   CONSTRAINT `fk_person_vital_status` FOREIGN KEY (`VITAL_STATUS_ID`) REFERENCES `vital_status` (`ID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22343 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`GENDER_TYPE_ID`) REFER `study/gender';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`GENDER_TYPE_ID`) REFER `study/gender';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8736,7 +8736,7 @@ CREATE TABLE `person_lastname_history` (
   PRIMARY KEY (`ID`),
   KEY `SURNAME` (`LASTNAME`) USING BTREE,
   KEY `PERSON_ID` (`PERSON_ID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2220 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8779,7 +8779,7 @@ CREATE TABLE `phone` (
   CONSTRAINT `phone_ibfk_3` FOREIGN KEY (`PHONE_STATUS_ID`) REFERENCES `phone_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `phone_ibfk_4` FOREIGN KEY (`SILENT`) REFERENCES `yes_no` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `phone_ibfk_5` FOREIGN KEY (`PERSON_ID`) REFERENCES `person` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4833 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_ID`) REFER `study/person`(`ID';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`PERSON_ID`) REFER `study/person`(`ID';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13563,7 +13563,7 @@ CREATE TABLE `study` (
   CONSTRAINT `fk_study_study_status` FOREIGN KEY (`STUDY_STATUS_ID`) REFERENCES `study_status` (`ID`),
   CONSTRAINT `fk_study_subjectuid_padchar` FOREIGN KEY (`SUBJECTUID_PADCHAR_ID`) REFERENCES `subjectuid_padchar` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_subjectuid_token` FOREIGN KEY (`SUBJECTUID_TOKEN_ID`) REFERENCES `subjectuid_token` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_STATUS_ID`) REFER `study/study';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_STATUS_ID`) REFER `study/study';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13592,7 +13592,7 @@ CREATE TABLE `study_comp` (
   UNIQUE KEY `NAME` (`NAME`,`STUDY_ID`),
   KEY `STUDY_COMP_STUDY_FK` (`STUDY_ID`) USING BTREE,
   CONSTRAINT `study_comp_ibfk_1` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_ID`) REFER `study/study`(`ID`)';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`STUDY_ID`) REFER `study/study`(`ID`)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13601,13 +13601,6 @@ CREATE TABLE `study_comp` (
 
 LOCK TABLES `study_comp` WRITE;
 /*!40000 ALTER TABLE `study_comp` DISABLE KEYS */;
-INSERT INTO `study_comp` VALUES (1,'Clinical Examination',NULL,1,NULL);
-INSERT INTO `study_comp` VALUES (2,'Biospecimen Collection',NULL,1,NULL);
-INSERT INTO `study_comp` VALUES (3,'Questionnaire',NULL,1,NULL);
-INSERT INTO `study_comp` VALUES (4,'Clinical Examination',NULL,15,NULL);
-INSERT INTO `study_comp` VALUES (5,'Consent',NULL,15,NULL);
-INSERT INTO `study_comp` VALUES (6,'SKINBIOPSY',NULL,29,NULL);
-INSERT INTO `study_comp` VALUES (7,'Clinical Examination',NULL,24,NULL);
 /*!40000 ALTER TABLE `study_comp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13696,7 +13689,7 @@ CREATE TABLE `study_pedigree_config` (
   CONSTRAINT `fk_study_pedigree_config_custom_field` FOREIGN KEY (`custom_field_id`) REFERENCES `custom_field` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_pedigree_config_family_id` FOREIGN KEY (`family_id`) REFERENCES `custom_field` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_study_pedigree_config_study` FOREIGN KEY (`study_id`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13818,7 +13811,7 @@ CREATE TABLE `subject_custom_field_data` (
   KEY `FK_CFD_CUSTOM_FIELD_DISPLAY_ID` (`CUSTOM_FIELD_DISPLAY_ID`),
   CONSTRAINT `FK_CFD_CUSTOM_FIELD_DISPLAY_ID` FOREIGN KEY (`CUSTOM_FIELD_DISPLAY_ID`) REFERENCES `custom_field_display` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_CFD_LINK_SUBJECT_STUDY_ID` FOREIGN KEY (`LINK_SUBJECT_STUDY_ID`) REFERENCES `link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13853,7 +13846,7 @@ CREATE TABLE `subject_file` (
   KEY `fk_subject_file_study_comp` (`STUDY_COMP_ID`) USING BTREE,
   CONSTRAINT `fk_subject_file_study_comp` FOREIGN KEY (`STUDY_COMP_ID`) REFERENCES `study_comp` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_subject_file_subject` FOREIGN KEY (`LINK_SUBJECT_STUDY_ID`) REFERENCES `link_subject_study` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11846 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13914,7 +13907,7 @@ CREATE TABLE `subject_study_consent` (
   CONSTRAINT `fk_subject_study_consent_1` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_subject_study_consent_2` FOREIGN KEY (`SUBJECT_ID`) REFERENCES `person` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_subject_study_consent_3` FOREIGN KEY (`STUDY_CONSENT_QUESTION_ID`) REFERENCES `study_consent_question` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14216,7 +14209,7 @@ CREATE TABLE `upload` (
   CONSTRAINT `fk_upload_status` FOREIGN KEY (`STATUS_ID`) REFERENCES `upload_status` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_upload_study` FOREIGN KEY (`STUDY_ID`) REFERENCES `study` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_upload_upload_level` FOREIGN KEY (`UPLOAD_LEVEL_ID`) REFERENCES `upload_level` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`DELIMITER_TYPE_ID`) REFER `study/del';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB; (`DELIMITER_TYPE_ID`) REFER `study/del';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14331,7 +14324,7 @@ CREATE TABLE `upload_type` (
   PRIMARY KEY (`ID`),
   KEY `fk_upload_type_ark_module` (`ARK_MODULE_ID`),
   CONSTRAINT `fk_upload_type_ark_module` FOREIGN KEY (`ARK_MODULE_ID`) REFERENCES `ark_module` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='Reference table to describe the type of an upload';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='Reference table to describe the type of an upload';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
