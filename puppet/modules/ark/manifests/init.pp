@@ -23,7 +23,7 @@ class ark {
 	}->
 	exec { 'buildArk':
 		cwd => '/home/vagrant/ark/',
-		command => '/usr/bin/mvn install',
+		command => '/usr/bin/mvn install -T8',
 		timeout => 0,
 		require => Package['maven'],
 	}->
