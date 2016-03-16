@@ -20,6 +20,8 @@ class ark {
 	file { 'ark-datastore':
 		ensure => directory,
 		name => '/opt/ark-datastore',
+		owner => 'tomcat7',
+		group => 'tomcat7',
 	}->
 	exec { 'buildArk':
 		cwd => '/home/vagrant/ark/',
