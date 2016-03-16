@@ -29,6 +29,7 @@ class mysql {
 	} ->
 	exec { 'apply_patch':
 		command => '/usr/bin/mysql -u root -ppassword < /tmp/base.sql',
+		onlyif => '/usr/bin/test -z $(echo "show databases;" | mysql -uroot -ppassword | grep "study")',
 	}
 
 	service { 'mysql':
