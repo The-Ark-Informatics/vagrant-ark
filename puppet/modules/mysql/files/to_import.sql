@@ -3945,6 +3945,16 @@ CREATE TABLE `biocollectionuid_padchar` (
 
 LOCK TABLES `biocollectionuid_padchar` WRITE;
 /*!40000 ALTER TABLE `biocollectionuid_padchar` DISABLE KEYS */;
+INSERT INTO `biocollectionuid_padchar` VALUES (1,'1');
+INSERT INTO `biocollectionuid_padchar` VALUES (2,'2');
+INSERT INTO `biocollectionuid_padchar` VALUES (3,'3');
+INSERT INTO `biocollectionuid_padchar` VALUES (4,'4');
+INSERT INTO `biocollectionuid_padchar` VALUES (5,'5');
+INSERT INTO `biocollectionuid_padchar` VALUES (6,'6');
+INSERT INTO `biocollectionuid_padchar` VALUES (7,'7');
+INSERT INTO `biocollectionuid_padchar` VALUES (8,'8');
+INSERT INTO `biocollectionuid_padchar` VALUES (9,'9');
+INSERT INTO `biocollectionuid_padchar` VALUES (10,'10');
 /*!40000 ALTER TABLE `biocollectionuid_padchar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4021,6 +4031,14 @@ CREATE TABLE `biocollectionuid_token` (
 
 LOCK TABLES `biocollectionuid_token` WRITE;
 /*!40000 ALTER TABLE `biocollectionuid_token` DISABLE KEYS */;
+INSERT INTO `biocollectionuid_token` VALUES (1,'-');
+INSERT INTO `biocollectionuid_token` VALUES (2,'@');
+INSERT INTO `biocollectionuid_token` VALUES (3,'#');
+INSERT INTO `biocollectionuid_token` VALUES (4,':');
+INSERT INTO `biocollectionuid_token` VALUES (5,'*');
+INSERT INTO `biocollectionuid_token` VALUES (6,'|');
+INSERT INTO `biocollectionuid_token` VALUES (7,'_');
+INSERT INTO `biocollectionuid_token` VALUES (8,'+');
 /*!40000 ALTER TABLE `biocollectionuid_token` ENABLE KEYS */;
 UNLOCK TABLES;
 
