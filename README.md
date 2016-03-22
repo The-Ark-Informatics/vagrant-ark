@@ -10,7 +10,6 @@ A vagrant build for [The Ark](https://github.com/The-Ark-Informatics/ark/).
 - [Vagrant](https://www.vagrantup.com/)
 
 ### To Install
-_A pre-built Virtualbox OVA is available from the releases section. Instructions to install the pre-built version are [here](#)_
 
 **_Note: The initial provision may take a long time to complete depending on your internet connection_**
 
@@ -21,6 +20,6 @@ _A pre-built Virtualbox OVA is available from the releases section. Instructions
 
 Once running, this virtual machine exposes an instance of [The Ark](https://github.com/The-Ark-Informatics/ark) accessible at [http://192.168.33.10:8080/ark](http://192.168.33.10:8080/ark)
 
-Passwords for all services (MySQL, LDAP and The Ark) are pre-configured to be `password`. The Ark administrator username is "`arksuperuser@ark.org.au`"
+More details are available in the docs folder.
 
 
