@@ -23,11 +23,17 @@ class ark {
 		owner => 'tomcat7',
 		group => 'tomcat7',
 	}->
+	exec { 'initMvn':
+		cwd => '/home/vagrant/ark/',
+		command => '/usr/bin/mvn initialize',
+		timeout => 0,
+		require => Package['maven'],
+	}->
 	exec { 'buildArk':
 		cwd => '/home/vagrant/ark/',
 		command => '/usr/bin/mvn package -T8',
 		timeout => 0,
-		require => Package['maven'],
+		require => [ Package['maven'], Exec['initMvn']],
 	}->
 	file { 'ark.war':
 		name => '/var/lib/tomcat7/webapps/ark.war',
