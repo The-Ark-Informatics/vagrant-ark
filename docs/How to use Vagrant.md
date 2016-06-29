@@ -6,8 +6,9 @@ provision the VM. We have used Vagrant and Puppet to create a VM on an
 Ubuntu 14.04 LTS base image, with Tomcat7, SLAPD and MySQL configured to
 create a ready-to-go Ark server.
 
-These instructions have been tested on OSX, and Ubuntu Linux. Windows
-hosts are untested.
+These instructions have been tested on OSX, Ubuntu Linux and Windows.
+Note that on Windows, the files under the puppet directory may appear to be
+formatted strangely. This is due to these files requiring Unix line endings.
 
 Before attempting to using vagrant-ark, you should be comfortable with
 the following topics:
